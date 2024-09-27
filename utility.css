@@ -1,0 +1,15 @@
+.display-flex{
+    display: flex;
+}
+
+.align-items {
+    align-items: center;
+}
+
+.justify-content {
+    justify-content: center;
+}
+
+.gap{
+    gap: 12px;
+}
