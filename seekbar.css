@@ -1,0 +1,133 @@
+/* seek bar */
+.seekbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 100px;
+    height: 60px;
+    margin: 0 12px;
+    /* margin-bottom: 12px; */
+    padding: 10px 0;
+    /* padding: 12px; */
+    /* border: 2px solid white; */
+}
+/* Seekbar buttons */
+.seek-btn {
+    display: flex;
+    gap: 20px;
+}
+.seek-btn img {
+    width: 40px;
+    transition: all 0.2s ease-in-out;
+}
+.seek-btn img:hover{
+    transform: scale(1.09);
+}
+
+/* The line of Seekbar */
+#seekbar {
+    -webkit-appearance: none;
+    /* Remove default styles */
+    width: 93%;
+    /* Full width */
+    height: 8px;
+    /* Thickness of the seekbar */
+    background: #ddd;
+    /* Track color */
+    border-radius: 5px;
+    /* Rounded corners */
+    outline: none;
+    /* Remove the blue outline */
+    opacity: 0.7;
+    /* Slight transparency */
+    transition: opacity 0.3s ease;
+}
+
+#seekbar:hover {
+    opacity: 1;
+    /* Full opacity on hover */
+}
+
+/* Thumb (circle) styling */
+#seekbar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Remove default thumb */
+    appearance: none;
+    width: 20px;
+    /* Thumb width */
+    height: 20px;
+    /* Thumb height */
+    background-color: #073d55;
+    /* Thumb color */
+    border-radius: 50%;
+    /* Rounded thumb */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    /* Slight shadow for depth */
+    position: relative;
+    top: -6px;
+    /* Center the thumb vertically on the track */
+    transition: all 0.2s ease;
+    /* Smooth transition */
+}
+
+/* For Firefox */
+#seekbar::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: #ff6f61;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    top: -6px;
+    /* Center the thumb vertically on the track */
+    transition: all 0.2s ease;
+    /* Smooth transition */
+}
+
+/* Track styling */
+#seekbar::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: #ddd;
+    border-radius: 5px;
+}
+#seekbar::-moz-range-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: #ddd;
+    border-radius: 5px;
+}
+
+
+/* Responsive For Mobile */
+@media (max-width: 768px) {
+    /* Right Content */
+    .main-content {
+        /* border: 2px solid white; */
+        margin: 0;
+        padding: 0;
+        height: 668px;
+    }
+    .head{
+        padding: 30px 0;
+        padding-bottom: 40px;
+
+        /* border: 2px solid white; */
+    }
+
+    /* Seekbar For Mobile */
+    .seekbar {
+        border-radius: 0;
+        margin: 0;
+        margin-top: 14px;
+        /* border: 2px solid white; */
+    }
+}
