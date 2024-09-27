@@ -136,7 +136,7 @@ function MusicCard(page_url, img, title, content) {
 MusicCard("honeysingh.html", "images/honeysingh.jpg", "Honey Singh", "All Yo Yo honey singh raps listen now.")
 MusicCard("Bollywood.html", "images/Bollywood songs.jpg", "Bollywood", "New Bollywood songs listen and enjoy")
 MusicCard("karanaujla.html", "images/karan-Aujla.jpg", "Karan Aujla", "Karan Aujla punjabi songs here on website.")
-MusicCard("ArijitSingh.html", "images/Arjit singh.jpg", "Arijit singh", "Love songs from Arjit singh.")
+MusicCard("Arijitsingh.html", "images/Arjit singh.jpg", "Arijit singh", "Love songs from Arjit singh.")
 MusicCard("hindisongs.html", "images/hindi songs img.jpg", "Hindi Songs", "All 90's hindi songs available. ")
 MusicCard("Bhojpuri.html", "images/bhojpuri.jpg", "Bhojpuri", "Real vibes in Bhojpuri songs.")
 MusicCard("English.html", "images/English.jpg", "English", "English songs are available.")
