@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musify - Arijit Singh</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #062f41;
+    }
+
+    .main-content {
+        margin: 20px;
+    }
+
+    .music-container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .music-card {
+        background-color: #fff;
+        border-radius: 10px;
+        width: 180px;
+        height: 250px;
+        padding: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .music-card:hover {
+        transform: scale(1.05);
+    }
+
+    .music-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .music-card span {
+        font-size: 18px;
+        display: block;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .seekbar {
+        display: flex;
+        align-items: center;
+        margin: 30px 56px;
+    }
+
+    .seekbar .play-button {
+        cursor: pointer;
+        margin: 0 10px;
+    }
+
+    .progress-bar {
+        flex: 1;
+        margin: 0 10px;
+    }
+
+    input[type="range"] {
+        width: 100%;
+        appearance: none;
+        height: 8px;
+        background: #ddd;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+        appearance: none;
+        width: 12px;
+        height: 12px;
+        background-color: #4caf50;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .seekbar span {
+        color: white;
+    }
+</style>
+
+<body>
+
+    <main>
+        <!-- Right Content -->
+        <div class="main-content">
+            <!-- heading -->
+            <div class="head">
+                <h2>Arijit Singh</h2>
+                <p>Something is new in this Musify. Let's Play music and enjoy these moments</p>
+            </div>
+
+            <!-- Music Cards Container -->
+            <div class="music-container" id="music-container">
+                <!-- Music cards will be dynamically inserted here from JavaScript -->
+            </div>
+
+            <!-- Seek bar -->
+            <div class="seekbar">
+                <div class="previous play-button" id="previous-btn">
+                    <img src="svgFile/previous.svg" alt="Previous">
+                </div>
+                <div id="play-pause-btn" class="play-button">
+                    <img src="svgFile/play.svg" alt="Play/Pause">
+                </div>
+                <div class="next play-button" id="next-btn">
+                    <img src="svgFile/next.svg" alt="Next">
+                </div>
+                <div class="progress-bar">
+                    <input type="range" id="seekbar" value="0" min="0" max="100" step="0.1">
+                </div>
+                <span id="current-time">00:00</span> / 
+                <span id="duration">00:00</span>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Audio Player -->
+    <audio id="audio-player"></audio>
+
+    <!-- JavaScript -->
+    <script>
+        const audio = document.getElementById('audio-player');
+        const playPauseBtn = document.getElementById('play-pause-btn');
+        const seekbar = document.getElementById('seekbar');
+        const currentTimeEl = document.getElementById('current-time');
+        const durationEl = document.getElementById('duration');
+        const musicContainer = document.getElementById('music-container');
+        let isPlaying = false;
+        let currentTrackIndex = 0;
+
+        // Array of songs (each song has title, artist, image, and URL)
+        const playlist = [
+            {
+                title: "Chaleya",
+                artist: "Arijit Singh",
+                image: "Songs/Arjit singh/images/Chaleya.jfif",
+                url: "Songs/Arjit singh/Chaleya.mp3"
+            },
+            {
+                title: "Pyaar hota kayi bar...",
+                artist: "Arijit Singh",
+                image: "Songs/Arjit singh/images/Pyar hota kayi bar hai.jfif",
+                url: "Songs/Arjit singh/Pyaar hota kayi baar hai.mp3"
+            },
+            {
+                title: "Song 3",
+                artist: "Arijit Singh",
+                image: "images/song3.jpg",
+                url: "https://www.example.com/song3.mp3"
+            }
+        ];
+
+        // Function to load the playlist and create music cards
+        function loadPlaylist() {
+            playlist.forEach((track, index) => {
+                const musicCard = document.createElement('div');
+                musicCard.classList.add('music-card');
+                musicCard.innerHTML = `
+                    <img src="${track.image}" alt="${track.title}">
+                    <span>${track.title}</span>
+                `;
+                // Click event for playing song on card click
+                musicCard.addEventListener('click', () => {
+                    currentTrackIndex = index;
+                    loadMusic(currentTrackIndex);
+                });
+                musicContainer.appendChild(musicCard);
+            });
+        }
+
+        // Function to load and play the selected music
+        function loadMusic(index) {
+            audio.src = playlist[index].url;
+            audio.load();
+            audio.play();
+            playPauseBtn.querySelector('img').src = "svgFile/pause.svg";
+            isPlaying = true;
+        }
+
+        // Play/Pause functionality
+        playPauseBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                audio.pause();
+                playPauseBtn.querySelector('img').src = "svgFile/play.svg";
+            } else {
+                audio.play();
+                playPauseBtn.querySelector('img').src = "svgFile/pause.svg";
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Update seekbar and time while the audio is playing
+        audio.addEventListener('timeupdate', () => {
+            const currentTime = audio.currentTime;
+            const duration = audio.duration;
+            seekbar.value = (currentTime / duration) * 100;
+            currentTimeEl.textContent = formatTime(currentTime);
+            if (!isNaN(duration)) {
+                durationEl.textContent = formatTime(duration);
+            }
+        });
+
+        // Seekbar input to jump through the song
+        seekbar.addEventListener('input', () => {
+            const seekTo = (seekbar.value / 100) * audio.duration;
+            audio.currentTime = seekTo;
+        });
+
+        // Format time in MM:SS format
+        function formatTime(seconds) {
+            const min = Math.floor(seconds / 60);
+            const sec = Math.floor(seconds % 60);
+            return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+        }
+
+        // Load the playlist on page load
+        window.onload = () => {
+            loadPlaylist();
+        };
+    </script>
+
+</body>
+
+</html>
