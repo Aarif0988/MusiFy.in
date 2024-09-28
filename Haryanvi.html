@@ -46,6 +46,13 @@
         }
     }
 
+    .mobile-navbar {
+        border-radius: 0px;
+        /* border: 0px; */
+        border-color: grey;
+        padding: 5px 0px;
+    }
+
     /* Toggle class to show the left content */
     .left.active {
         display: block;
@@ -59,13 +66,27 @@
             <div class="logo">
                 <img src="images/web-logo.png" alt="">
             </div>
-            <!-- Left content button -->
-            <div id="hamburger">
-                <span>&#9776;</span>
-            </div>
         </div>
     </nav>
 
+     <!-- Display For Mobile (html) -->
+     <div class="mobile-navbar">
+        <div class="logo">
+            Musify
+        </div>
+        <!-- Left content button -->
+        <div id="hamburger">
+            <span>&#9776;</span>
+        </div>
+        <!-- <div class="mobile-list">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+            </ul>
+        </div> -->
+    </div>
+
+    <!-- Main content -->
     <main>
         <!-- Left content -->
         <div class="left">
