@@ -147,26 +147,29 @@
         var currentSongIndex = 0;
         var isPlaying = false;
         var songs = [
-            { title: "Chaleya", src: "Songs/Arijit singh/Chaleya.mp3" },
-            { title: "", src: "" },
-            { title: "", src: "" },
-            { title: "", src: "" },
-            { title: "", src: "" },
-            { title: "", src: "" },
-            { title: "", src: "" },
-            { title: "", src: "" },
-            { title: "", src: "" },
-            { title: "", src: "" },
-            { title: "", src: "" },
-            { title: "", src: "" },
-            { title: "", src: "" },
-            { title: "", src: "" },
-            { title: "", src: "" },
-            { title: "", src: "" }
+            { title: "Chaleya", src: "Songs/Arijit singh/Chaleya.mp3", content: "Jawan"},
+            { title: "Thoda Thoda Pyaar", src: "Songs/Bollywood/Thoda Thoda Pyaar.mp3", content: "Hindi" },
+            { title: "Aayi Nai", src: "Songs/Bollywood/Aayi nai.mp3", content: "Stree 2" },
+            { title: "Aaj Ki Raat", src: "Songs/Bollywood/Aaj ki raat.mp3", content: "Stree 2" },
+            { title: "Taras", src: "Songs/Bollywood/Taras.mp3", content: "Munjya" },
+            { title: "Cheez Badi", src: "Songs/Bollywood/Cheez badi.mp3", content: "Machine" },
+            { title: "No Entry", src: "Songs/Bollywood/No Entry slowed.mp3", content: "Slowed & Reverb" },
+            { title: "Jeene Laga Hoon", src: "Songs/Bollywood/Jeene laga hoon.mp3", content: "Ramaiya Vastavaiya" },
+            { title: "Kar Gayi Chull", src: "Songs/Bollywood/Kar gayi chull.mp3", content: "Kapoor & sons" },
+            { title: "Tumse Milke Dil Ka", src: "Songs/Bollywood/Tumse milke dil ka.mp3", content: "Main Hoon Na" },
+            { title: "Baarish Ban Jaana", src: "Songs/Bollywood/Baarish ban jana.mp3", content: "Bollywood" },
+            { title: "Rata Lambiyan", src: "Songs/Bollywood/Raata lambiyan.mp3", content: "Shershaah" },
+            { title: "Taaron Ke Shehar", src: "Songs/Bollywood/Taaron ke sheher.mp3", content: "Bollywood" },
+            { title: "Humnava Mere", src: "Songs/Bollywood/Humnava mere.mp3", content: "Jubin nautiya;" },
+            { title: "Kala Chashma", src: "Songs/Bollywood/Kala chasma.mp3", content: "Baar Baar Dekho" },
+            { title: "Laila Mein Laila", src: "Songs/Bollywood/Laila mein laila.mp3", content: "Raees" },
+            { title: "Munni Badnaam", src: "Songs/Bollywood/Munni Badnaam.mp3", content: "Dabang" },
+            { title: "Meri Jaan", src: "Songs/Bollywood/Meri jaan slowed.mp3", content: "Slowed and Reverb" },
+            // { title: "", src: "", content: "" },
         ];
 
         // Function to render music cards
-        function MusicCard(img, title, index) {
+        function MusicCard(img, title, content, index) {
             let html = `
                 <div class="music-card" data-index="${index}">
                     <img src="${img}" alt="">
@@ -174,7 +177,7 @@
                             <img src="svgFile/songicon.svg" alt="">
                             <div class="m-title">
                                 <span>${title}</span>
-                                <p>Bollywood song</p>
+                                <p>Song - ${content}</p>
                             </div>
                     </div>
                 </div>
@@ -184,7 +187,7 @@
 
         // Render all cards
         songs.forEach((song, index) => {
-            MusicCard(`Songs/Bollywood/images/${song.title}.jfif`, song.title, index);
+            MusicCard(`Songs/Bollywood/images/${song.title}.jfif`, song.title, song.content, index);
         });
 
         // Play song when music card is clicked
