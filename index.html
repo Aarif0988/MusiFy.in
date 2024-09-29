@@ -7,7 +7,9 @@
     <title>Musify.com</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="utility.css">
+    <link rel="stylesheet" href="seekbar.css">
 </head>
+
 <style>
     /* Hamburger button styling */
     #hamburger {
@@ -30,6 +32,20 @@
 
         #hamburger {
             display: block;
+        }
+
+        body {
+            position: relative;
+        }
+
+        /* seek bar */
+        .seekbar {
+            position: fixed;
+            top: 89%;
+            background-color: transparent;
+            margin: 0;
+            border-radius: 15px;
+            /* border: 2px solid white; */
         }
     }
 
@@ -75,20 +91,50 @@
         </div>
     </div>
 
+
     <!-- Display For Mobile (html) -->
     <div class="mobile-display">
-        <div class="mobile-navbar">
-            <div class="logo">
-                Musify
+        <!-- display songs -->
+        <div class="mobile-front">
+            <div class="mobile-category">
+                <div class="category-buttons">
+                    <!-- hamburger -->
+                    <div class="ham-navbar">
+                        <div id="hamburger">
+                            <span>&#9776;</span>
+                        </div>
+                    </div>
+                    <a href="#"><button>All</button></a>
+                    <a href="#"><button>Song</button></a>
+                </div>
             </div>
-            <div class="mobile-list">
-                <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                </ul>
+            <div class="disp-head">
+                Top hits !
             </div>
+            <div class="display-songs">
+                <!-- All song cards from JavaScript -->
+            </div>
+
+            <!-- Seekbar and Controls -->
+            <div class="seekbar">
+                <div id="seekbbb" style="display: none;" class="seek-content">
+                    <!-- <button id="prev-btn">Previous</button> -->
+                    <div class="seek-btn">
+                        <img src="svgFile/previous.svg" alt="">
+                        <img id="play-pause-btn" src="svgFile/play.svg" alt="">
+                        <img src="svgFile/next.svg" alt="">
+                    </div>
+                    <!-- <button id="next-btn">Next</button> -->
+                    <input type="range" id="seekbar" value="0" min="0" max="100">
+                </div>
+            </div>
+
         </div>
     </div>
+    <!-- Hidden Audio Element -->
+    <audio id="audio-player"></audio>
+
+
 
     <!-- main content -->
     <main>
@@ -136,23 +182,6 @@
 
         <!-- Right content -->
         <div class="main-content">
-            <!-- Navabar -->
-            <div class="ham-navbar">
-                <div id="hamburger">
-                    <span>&#9776;</span>
-                </div>
-                <div class="nav-list">
-                    <ul>
-                        <li>Home</li>
-                        <li>About</li>
-                        <li>Contact</li>
-                    </ul>
-                </div>
-            </div>
-
-
-
-
             <!-- heading -->
             <div class="head">
                 <h2>Latest Musics</h2>
@@ -161,19 +190,6 @@
             <!-- music card -->
             <div class="music-container">
                 <!-- All music cards From JavaScript -->
-            </div>
-
-            <!-- Seek bar -->
-            <div class="seekbar">
-                <div class="previous play-button seek-btn">
-                    <!-- <img src="svgFile/previous.svg" alt=""> -->
-                </div>
-                <div id="pause" class="play play-button">
-                    <!-- <img src="svgFile/play.svg" alt=""> -->
-                </div>
-                <div class="next play-button seek-btn">
-                    <!-- <img src="svgFile/next.svg" alt=""> -->
-                </div>
             </div>
         </div>
     </main>
@@ -187,6 +203,8 @@
             leftContent.classList.toggle("active");
         });
     </script>
+
+    <!-- Backend Javascript -->
     <script src="script.js"></script>
 </body>
 

@@ -188,7 +188,7 @@ main {
     padding: 8px 10px;
     outline: none;
     color: white;
-    outline: 1px solid grey;
+    outline: 2 solid grey;
     border: none;
     border-radius: 10px;
     background-color: transparent;
@@ -252,6 +252,7 @@ main {
 }
 
 ::-webkit-scrollbar-thumb {
+    background-color: transparent;
     background-color: #888;
     /* Scrollbar thumb color */
     border-radius: 6px;
@@ -261,7 +262,8 @@ main {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
+    background-color: transparent;
+    /* background-color: #555; */
     /* Darker color on hover */
 }
 
@@ -270,7 +272,7 @@ main {
 * {
     scrollbar-width: thin;
     /* Make scrollbar thinner */
-    scrollbar-color: #5c5c5c #073d55;
+    scrollbar-color: transparent transparent;
     /* thumb color and track color */
 }
 
@@ -285,6 +287,7 @@ main {
     border-radius: 25px;
     padding: 12px 20px;
     transition: all 0.2s;
+    /* border: 2px solid white; */
 }
 
 .songs:hover {
@@ -442,30 +445,14 @@ a {
         display: none;
         margin: 0;
         padding: 0;
-        border: 2px solid white;
-    }
-    .mobile-display {
-        display: block;
-        justify-content: center;
-        background-image: url(images/Mobile\ Banner.jpg);
-        background-position: center;
-        background-size: cover;
-        height: 93vh;
-        position: relative;
         /* border: 2px solid white; */
     }
-
-    .mobile-display::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0);
-        /* Black overlay with 50% opacity */
-        z-index: 1;
-        /* Ensure it is above the background */
+    .mobile-display {
+        display: flex;
+        flex-direction: column;    
+        background-color: #073d55;
+        width: 100%;
+        /* border: 2px solid white; */
     }
     .mobile-navbar {
         display: flex;
@@ -473,8 +460,9 @@ a {
         align-items: center;
         padding: 20px 0px 10px 0px;
         /* margin: 0 10px; */
-        border-bottom: 1px solid white;
+        border-bottom: 2 solid white;
         border-radius: 0px 0px 25px 25px;
+        width: 100%;
     }
     .logo {
         font-size: 35px;
@@ -490,7 +478,75 @@ a {
     .mobile-list ul li {
         display: flex;
     }
-    
+
+    /* Display songs */
+    .mobile-front {
+        color: white;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 800;
+        height: auto;
+        color: rgb(160, 160, 160);
+        /* border: 2px solid white; */
+    }
+    .category-buttons{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 10px;
+        /* border: 1px solid white; */
+    }
+    .mobile-category button{
+        width: 70px;
+        border-radius: 25px;
+        font-size: 17px;
+        font-weight: 700;
+        padding: 7px 0;
+        color: rgb(185, 185, 185);
+        background-color: #042736;
+        border: none;
+    }
+
+    .display-songs{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        overflow-y: scroll;
+        padding: 10px;
+        padding-top: 0;
+        height: 200px;
+        /* border: 2px solid white; */
+    }
+    .disp-head{
+        font-size: 30px;
+        margin: 10px;
+        /* border: 2px solid white; */
+    }
+    .song-card {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        /* border: 2px solid red; */
+    }
+    .song-card img {
+        width: 130px;
+        /* border-radius: 12px; */
+    }
+    .song-title{
+        padding: 5px 0;
+        color: white;
+        /* border: 2px solid blue; */
+    }
+    .song-title p {
+        font-weight: 400;
+        font-size: 12px;
+        color: rgb(160, 160, 160);
+    }
     /* Main-content */
     main {
         display: flex;
@@ -521,6 +577,12 @@ a {
         border-radius: 0;
         /* border: 2px solid white; */
     }
+    .head {
+        margin: 0;
+        padding: 40px 0;
+        /* padding-bottom: 40px; */
+        /* border: 2px solid white; */
+    }
 
     .head p {
         padding: 0 15px;
@@ -529,21 +591,22 @@ a {
 
     .music-container {
         padding: 10px 15px;
-        height: 400px;
+        height: 390px;
         justify-content: space-around;
         /* border: 2px solid white; */
     }
-
     .music-card {
         width: 170px;
         height: auto;
         /* padding: 5px; */
         padding-bottom: 0;
+        color: rgb(255, 253, 253);
         /* border: 2px solid white; */
     }
 
     .music-card img {
         width: 170px;
+        border-radius: 15px;
         /* border-radius: 10px; */
     }
 

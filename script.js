@@ -1,5 +1,101 @@
 console.log("Bishmillah")
 
+// Mobile Javascript for front display 
+var audioPlayer = document.getElementById('audio-player');
+var seekbar = document.getElementById('seekbar');
+var playPauseBtn = document.getElementById('play-pause-btn');
+var currentSongIndex = 0;
+var isPlaying = false;
+var dslist = [
+    { title: "Brown rang", img: "Songs/Honey singh/images/Brown rang.jfif", src: "Songs/Honey singh/Brown rang honey singh.mp3", content: "Yo Yo honey singh" },
+    { title: "Haareya", img: "Songs/Arijit singh/images/Haareya.jfif", src: "Songs/Arijit singh/Haareya.mp3", content: "Arjit singh" },
+    { title: "Lo Maan Liya", img: "Songs/Arijit singh/images/Lo Maan Liya.jfif", src: "Songs/Arijit singh/Lo Maan Liya.mp3", content: "Arijit singh" },
+    { title: "Sanam Teri kasam", img: "Songs/Arijit singh/images/Sanam Teri Kasam.jfif", src: "Songs/Arijit singh/Sanam Teri Kasam.mp3", content: "Sanam teri kasam movie" },
+    { title: "Kabooter", img: "Songs/Haryanvi/images/Kabooter.jfif", src: "Songs/Haryanvi/Kabooter.mp3", content: "Haryanvi" },
+    // { title: "", img: "", src: "", content: ""},
+    // { title: "", img: "", src: "", content: ""},
+    // { title: "", img: "", src: "", content: ""},
+]
+// Function to render music cards
+function DisplaySong(img, title, content, index) {
+    let html = `<div class="song-card" data-index="${index}">
+                    <img src="${img}" alt="">
+                    <div class="song-title">
+                        <span>${title}</span>
+                        <p>Song - ${content}</p>
+                    </div>
+                </div>`;
+    document.querySelector(".display-songs").innerHTML += html;
+}
+
+// Render all cards
+dslist.forEach((song, index) => {
+    DisplaySong(song.img, song.title, song.content, index);
+
+});
+
+function SeekBar() {
+    const songcard = document.querySelector(".display-songs")
+    songcard.addEventListener('click', function () {
+        const el = document.getElementById("seekbbb")
+        el.removeAttribute("style")
+    })
+
+}
+SeekBar()
+
+// Play song when music card is clicked
+document.querySelector('.display-songs').addEventListener('click', function (event) {
+    var card = event.target.closest('.song-card');
+    if (card) {
+        var index = card.getAttribute('data-index');
+        loadSong(index);
+        playSong();
+    }
+});
+
+// Load and play song
+function loadSong(index) {
+    currentSongIndex = index;
+    audioPlayer.src = dslist[index].src;
+}
+
+function playSong() {
+    audioPlayer.play();
+    isPlaying = true;
+    playPauseBtn.src = 'svgFile/pause.svg';
+}
+
+function pauseSong() {
+    audioPlayer.pause();
+    isPlaying = false;
+    playPauseBtn.src = 'svgFile/play.svg';
+}
+
+// Play/Pause functionality
+playPauseBtn.addEventListener('click', function () {
+    if (isPlaying) {
+        pauseSong();
+    } else {
+        playSong();
+    }
+});
+
+// Update seekbar as song plays
+audioPlayer.addEventListener('timeupdate', function () {
+    var percentage = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+    seekbar.value = percentage;
+});
+
+// Seek song using seekbar
+seekbar.addEventListener('input', function () {
+    var seekTo = (seekbar.value / 100) * audioPlayer.duration;
+    audioPlayer.currentTime = seekTo;
+});
+
+
+
+
 // Login
 document.getElementById("email").addEventListener("click", function () {
     setTimeout(() => {
@@ -11,109 +107,7 @@ document.getElementById("email").addEventListener("click", function () {
 })
 
 // Playlist
-function getSongs(title, artist) {
-    let songs = `<div id="${title}" class="songs">
-    <img src="svgFile/songicon.svg" alt="">
-                <div class="song-name">${title} <br> <span>Artist - ${artist}</span></div>
-                <img id="play-button" src="svgFile/play.svg" alt="">
-                </div>`
-
-    document.querySelector(".playlist-items").innerHTML += songs
-}
-getSongs("Millionaire", "honey singh");
-getSongs("Fan ikko nar da", "Karan Aujla");
-getSongs("Chali samiyana me...", "Akela kallu");
-getSongs("Chuye mor jawani", "Samar singh");
-getSongs("Hamar Ganna ke ras", "Samar singh");
-getSongs("Chikan Chikan petwa", "luck raja holi");
-getSongs("Cheques", "Subh");
-getSongs("", "");
-getSongs("", "");
-
-
-
-// Declare a global variable to hold the audio object
-let currentAudio = null;
-
-function playSong(song_url) {
-    // If the current audio is not playing the same song, create a new one
-    if (!currentAudio || currentAudio.src !== song_url) {
-        currentAudio = new Audio(song_url); // Create a new Audio object
-    }
-    currentAudio.play(); // Play the audio
-}
-
-function pauseSong() {
-    if (currentAudio) { // Only pause if there's a song currently playing
-        currentAudio.pause();
-    }
-}
-
-// Event listeners
-// First song : 
-document.getElementById("Millionaire").addEventListener("click", () => {
-    playSong("Songs/Millioner honey singh.mp3");
-});
-
-document.getElementById("pause").addEventListener("click", () => {
-    pauseSong();
-});
-
-// Second Song : 
-document.getElementById("Fan ikko nar da").addEventListener("click", () => {
-    playSong("Songs/Fan ikko nar da me karan Aujla.mp3");
-});
-
-document.getElementById("pause").addEventListener("click", () => {
-    pauseSong();
-});
-
-// Third song : 
-document.getElementById("Chali samiyana me...").addEventListener("click", () => {
-    playSong("Songs/Chali samiyana me.mp3");
-});
-
-document.getElementById("pause").addEventListener("click", () => {
-    pauseSong();
-});
-
-// Fourth song : 
-document.getElementById("Chuye mor jawani").addEventListener("click", () => {
-    playSong("Songs/Chuwe mor jawani.mp3");
-});
-
-document.getElementById("pause").addEventListener("click", () => {
-    pauseSong();
-});
-
-// Fifth song : 
-document.getElementById("Hamar Ganna ke ras").addEventListener("click", () => {
-    playSong("Songs/Ganna ke rass.mp3");
-});
-
-document.getElementById("pause").addEventListener("click", () => {
-    pauseSong();
-});
-
-// Sixth song : 
-document.getElementById("Chikan Chikan petwa").addEventListener("click", () => {
-    playSong("Songs/chikan chikan petwa.mp3");
-});
-
-document.getElementById("pause").addEventListener("click", () => {
-    pauseSong();
-});
-
-// Seventh song :
-document.getElementById("Cheques").addEventListener("click", () => {
-    playSong("Songs/Bhojpuri/Cheques.mp3");
-});
-
-document.getElementById("pause").addEventListener("click", () => {
-    pauseSong();
-});
-
-
+// Working.......
 
 
 // Music container
@@ -122,11 +116,11 @@ function MusicCard(page_url, img, title, content) {
                     <div class="music-card">
                         <img src="${img}" alt="">
                         <div class="play-button">
-                            <img src="svgFile/songicon.svg" alt="">
-                            <div class="m-title">
-                                <span>${title}</span>
-                                <p>${content}</p>
-                            </div>
+                        <img src="svgFile/songicon.svg" alt="">
+                        <div class="m-title">
+                            <span>${title}</span>
+                            <p>${content}</p>
+                        </div>
                         </div>
                     </div>
                  </a>`
