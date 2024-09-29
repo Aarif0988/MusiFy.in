@@ -23,13 +23,14 @@
         /* border: 2px solid white; */
     }
 
-     /* Hamburger button styling */
-     #hamburger {
+    /* Hamburger button styling */
+    #hamburger {
         display: none;
         font-size: 30px;
         cursor: pointer;
     }
-    .mobile-navbar{
+
+    .mobile-navbar {
         display: none;
     }
 
@@ -44,9 +45,11 @@
             margin: 0;
             width: 100%;
         }
+
         #hamburger {
             display: block;
         }
+
         .mobile-navbar {
             display: flex;
             justify-content: space-around;
@@ -56,18 +59,44 @@
             border-color: grey;
             padding: 5px 0;
         }
+
+        .seekbar {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            bottom: 0px;
+            border-radius: 0;
+            margin: 0px;
+            margin-top: 10px;
+            border-radius: 12px;
+            /* border: 2px solid white; */
+        }
+
+        .seek-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            border-radius: none;
+            background-color: #062f41;
+            width: 100%;
+            height: 60px;
+            padding: 10px 0;
+            /* border: 2px solid white; */
+        }
     }
+
 
     /* Toggle class to show the left content */
     .left.active {
         display: block;
     }
-    
 </style>
 
 <body>
-     <!-- Navbar -->
-     <nav>
+    <!-- Navbar -->
+    <nav>
         <div class="navbar">
             <div class="logo">
                 <img src="images/web-logo.png" alt="">
@@ -75,8 +104,8 @@
         </div>
     </nav>
 
-     <!-- Display For Mobile (html) -->
-     <div class="mobile-navbar">
+    <!-- Display For Mobile (html) -->
+    <div class="mobile-navbar">
         <div class="logo">
             Musify
         </div>
