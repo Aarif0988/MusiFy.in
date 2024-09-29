@@ -12,10 +12,20 @@ var dslist = [
     { title: "Lo Maan Liya", img: "Songs/Arijit singh/images/Lo Maan Liya.jfif", src: "Songs/Arijit singh/Lo Maan Liya.mp3", content: "Arijit singh" },
     { title: "Sanam Teri kasam", img: "Songs/Arijit singh/images/Sanam Teri Kasam.jfif", src: "Songs/Arijit singh/Sanam Teri Kasam.mp3", content: "Sanam teri kasam movie" },
     { title: "Kabooter", img: "Songs/Haryanvi/images/Kabooter.jfif", src: "Songs/Haryanvi/Kabooter.mp3", content: "Haryanvi" },
+    { title: "Badli Badli Laage", img: "Songs/Haryanvi/images/Badli Badli Laage.jfif", src: "Songs/Haryanvi/Badli Badli Laage.mp3", content: "Haryanvi"},
+    { title: "Palang Sagwan Ke", img: "Songs/Bhojpuri/images/Palang sagwan.jfif", src: "Songs/Bhojpuri/Palang sagwan.mp3", content: "Khesari Lal"},
+    { title: "Banaras Ghumai Da", img: "Songs/Bhojpuri/images/Banaras Ghumai da.jfif", src: "Songs/Bhojpuri/A raja hamka banaras ghumai da.mp3", content: "Bhojpuri"},
     // { title: "", img: "", src: "", content: ""},
     // { title: "", img: "", src: "", content: ""},
     // { title: "", img: "", src: "", content: ""},
 ]
+var dslist2 = [
+    { title: "Badli Badli Laage", img: "Songs/Haryanvi/images/Badli Badli Laage.jfif", src: "Songs/Haryanvi/Badli Badli Laage.mp3", content: "Ajay hudda" },
+    // { title: "", img: "", src: "", content: ""},
+    // { title: "", img: "", src: "", content: ""},
+    // { title: "", img: "", src: "", content: ""},
+]
+
 // Function to render music cards
 function DisplaySong(img, title, content, index) {
     let html = `<div class="song-card" data-index="${index}">
@@ -34,6 +44,7 @@ dslist.forEach((song, index) => {
 
 });
 
+// Function for Display Seekbar : 
 function SeekBar() {
     const songcard = document.querySelector(".display-songs")
     songcard.addEventListener('click', function () {
