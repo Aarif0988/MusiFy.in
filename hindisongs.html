@@ -30,6 +30,9 @@
         cursor: pointer;
     }
 
+    .mobile-navbar{
+        display: none;
+    }
     /* Hide left content by default for small screens */
     @media (max-width: 768px) {
         .left {
@@ -45,13 +48,15 @@
         #hamburger {
             display: block;
         }
-    }
-
-    .mobile-navbar {
-        border-radius: 0px;
-        /* border: 0px; */
-        border-color: grey;
-        padding: 5px 0px;
+        .mobile-navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-bottom: 1px solid white;
+            border-radius: 0px;
+            border-color: grey;
+            padding: 5px 0;
+        }
     }
 
     /* Toggle class to show the left content */
