@@ -110,6 +110,7 @@
 @media (max-width: 768px) {
     /* Right Content */
     .main-content {
+        position: relative;
         /* border: 2px solid white; */
         margin: 0;
         padding: 0;
@@ -124,9 +125,13 @@
 
     /* Seekbar For Mobile */
     .seekbar {
+        position: fixed;
+        width: 100%;
+        bottom: 0px;
         border-radius: 0;
         margin: 0;
         margin-top: 14px;
+        background-color: rgba(0, 0, 0, 0.3);
         /* border: 2px solid white; */
     }
 }
