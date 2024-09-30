@@ -8,9 +8,9 @@ var currentSongIndex = 0;
 var isPlaying = false;
 var dslist = [
     { title: "Brown rang", img: "Songs/Honey singh/images/Brown rang.jfif", src: "Songs/Honey singh/Brown rang honey singh.mp3", content: "Yo Yo honey singh" },
-    { title: "Haareya", img: "Songs/Arijit singh/images/Haareya.jfif", src: "Songs/Arijit singh/Haareya.mp3", content: "Arjit singh" },
+    { title: "Haareya", img: "Songs/Arijit singh/images/Haareya.jfif", src: "Songs/Arijit singh/Haareya.mp3", content: "Arijit singh" },
     { title: "Lo Maan Liya", img: "Songs/Arijit singh/images/Lo Maan Liya.jfif", src: "Songs/Arijit singh/Lo Maan Liya.mp3", content: "Arijit singh" },
-    { title: "Sanam Teri kasam", img: "Songs/Arijit singh/images/Sanam Teri Kasam.jfif", src: "Songs/Arijit singh/Sanam Teri Kasam.mp3", content: "Sanam teri kasam movie" },
+    { title: "Sanam Teri kasam", img: "Songs/Arijit singh/images/Sanam Teri Kasam.jfif", src: "Songs/Arijit singh/Sanam Teri Kasam.mp3", content: "Sanam teri kasam" },
     { title: "Kabooter", img: "Songs/Haryanvi/images/Kabooter.jfif", src: "Songs/Haryanvi/Kabooter.mp3", content: "Haryanvi" },
     { title: "Badli Badli Laage", img: "Songs/Haryanvi/images/Badli Badli Laage.jfif", src: "Songs/Haryanvi/Badli Badli Laage.mp3", content: "Haryanvi"},
     { title: "Palang Sagwan Ke", img: "Songs/Bhojpuri/images/Palang sagwan.jfif", src: "Songs/Bhojpuri/Palang sagwan.mp3", content: "Khesari Lal"},
