@@ -15,13 +15,9 @@ var dslist = [
     { title: "Badli Badli Laage", img: "Songs/Haryanvi/images/Badli Badli Laage.jfif", src: "Songs/Haryanvi/Badli Badli Laage.mp3", content: "Haryanvi"},
     { title: "Palang Sagwan Ke", img: "Songs/Bhojpuri/images/Palang sagwan.jfif", src: "Songs/Bhojpuri/Palang sagwan.mp3", content: "Khesari Lal"},
     { title: "Banaras Ghumai Da", img: "Songs/Bhojpuri/images/Banaras Ghumai da.jfif", src: "Songs/Bhojpuri/A raja hamka banaras ghumai da.mp3", content: "Bhojpuri"},
-    // { title: "", img: "", src: "", content: ""},
-    // { title: "", img: "", src: "", content: ""},
-    // { title: "", img: "", src: "", content: ""},
-]
-var dslist2 = [
-    { title: "Badli Badli Laage", img: "Songs/Haryanvi/images/Badli Badli Laage.jfif", src: "Songs/Haryanvi/Badli Badli Laage.mp3", content: "Ajay hudda" },
-    // { title: "", img: "", src: "", content: ""},
+    { title: "Bewafa", img: "Songs/Bhojpuri/images/Bewafa.jfif", src: "Songs/Bhojpuri/Bewafa Bhojpuri.mp3", content: "In Bhojpuri"},
+    { title: "Aa Toh Sahi", img: "Songs/Bollywood/images/Aa Toh Sahi.jfif", src: "Songs/Bollywood/Aa Toh Sahi.mp3", content: "Judwaa 2"},
+    { title: "Apka Kiya Hoga", img: "Songs/Bollywood/images/Apka kya Hoga.jfif", src: "Songs/Bollywood/Apka Kya Hoga.mp3", content: "Slowed & Reverb"},
     // { title: "", img: "", src: "", content: ""},
     // { title: "", img: "", src: "", content: ""},
 ]
