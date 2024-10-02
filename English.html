@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Musify - Arijit Singh</title>
+    <title>Musify - Korean Songs</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="seekbar.css">
 </head>
 
 <style>
@@ -18,225 +19,283 @@
         background-color: #062f41;
     }
 
-    .main-content {
-        margin: 20px;
-    }
-
     .music-container {
-        display: flex;
-        gap: 20px;
-        flex-wrap: wrap;
+        /* border: 2px solid white; */
     }
 
-    .music-card {
-        background-color: #fff;
-        border-radius: 10px;
-        width: 180px;
-        height: 250px;
-        padding: 20px;
+    /* Hamburger button styling */
+    #hamburger {
+        display: none;
+        font-size: 30px;
         cursor: pointer;
-        transition: all 0.3s ease;
     }
 
-    .music-card:hover {
-        transform: scale(1.05);
+    .mobile-navbar {
+        display: none;
     }
 
-    .music-card img {
-        width: 100%;
-        height: 150px;
-        object-fit: cover;
-        border-radius: 10px;
+    /* Hide left content by default for small screens */
+    @media (max-width: 768px) {
+        .left {
+            display: none;
+            width: 100%;
+        }
+
+        .main-content {
+            margin: 0;
+            width: 100%;
+        }
+
+        #hamburger {
+            display: block;
+        }
+
+        .mobile-navbar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-bottom: 1px solid white;
+            border-radius: 0px;
+            border-color: grey;
+            padding: 5px 0;
+        }
+
+        .seekbar {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            bottom: 0px;
+            border-radius: 0;
+            margin: 0px;
+            margin-top: 10px;
+            border-radius: 12px;
+            /* border: 2px solid white; */
+        }
+
+        .seek-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            border-radius: none;
+            background-color: #062f41;
+            width: 100%;
+            height: 60px;
+            padding: 10px 0;
+            /* border: 2px solid white; */
+        }
     }
 
-    .music-card span {
-        font-size: 18px;
+
+    /* Toggle class to show the left content */
+    .left.active {
         display: block;
-        margin-top: 10px;
-        text-align: center;
-    }
-
-    .seekbar {
-        display: flex;
-        align-items: center;
-        margin: 30px 56px;
-    }
-
-    .seekbar .play-button {
-        cursor: pointer;
-        margin: 0 10px;
-    }
-
-    .progress-bar {
-        flex: 1;
-        margin: 0 10px;
-    }
-
-    input[type="range"] {
-        width: 100%;
-        appearance: none;
-        height: 8px;
-        background: #ddd;
-        border-radius: 5px;
-        outline: none;
-    }
-
-    input[type="range"]::-webkit-slider-thumb {
-        appearance: none;
-        width: 12px;
-        height: 12px;
-        background-color: #4caf50;
-        border-radius: 50%;
-        cursor: pointer;
-    }
-
-    .seekbar span {
-        color: white;
     }
 </style>
 
 <body>
+    <!-- Navbar -->
+    <nav>
+        <div class="navbar">
+            <div class="logo">
+                <img src="images/web-logo.png" alt="">
+            </div>
+        </div>
+    </nav>
 
+    <!-- Display For Mobile (html) -->
+    <div class="mobile-navbar">
+        <div class="logo">
+            Musify
+        </div>
+        <!-- Left content button -->
+        <div id="hamburger">
+            <span>&#9776;</span>
+        </div>
+        <!-- <div class="mobile-list">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+            </ul>
+        </div> -->
+    </div>
+
+    <!-- Main content -->
     <main>
+        <!-- Left content -->
+        <div class="left">
+            <!-- Left upper part -->
+            <div class="upper">
+                <div class="search">
+                    <img src="svgFile/search.svg" alt="">
+                    <input type="search" placeholder="Search...">
+                </div>
+                <div class="home display-flex align-items">
+                    <img src="svgFile/home.svg" alt="">
+                    <span>Home</span>
+                </div>
+                <div class="About display-flex align-items">
+                    <img src="svgFile/about.svg" alt="">
+                    <span>About</span>
+                </div>
+            </div>
+            <!-- Left Lower part -->
+            <div class="lower">
+                <div class="playlist display-flex">
+                    <h2>Your Playlist</h2>
+                    <!-- Platlist container -->
+                    <div class="playlist-items">
+                        <!-- First song -->
+                    </div>
+                </div>
+                <!-- Footer -->
+                <footer>
+                    <ul>
+                        <li>About</li>
+                        <li>Constact</li>
+                        <li>Privacy</li>
+                        <li>Policy</li>
+                        <li>Terms</li>
+                        <li>Conditions</li>
+                        <li>FAQ</li>
+                        <li>Help</li>
+                    </ul>
+                </footer>
+            </div>
+        </div>
+
         <!-- Right Content -->
         <div class="main-content">
             <!-- heading -->
             <div class="head">
-                <h2>Arijit Singh</h2>
+                <h2>Korean Songs</h2>
                 <p>Something is new in this Musify. Let's Play music and enjoy these moments</p>
             </div>
-
-            <!-- Music Cards Container -->
-            <div class="music-container" id="music-container">
-                <!-- Music cards will be dynamically inserted here from JavaScript -->
+            <div class="music-container">
+                <!-- All music cards From JavaScript -->
             </div>
 
-            <!-- Seek bar -->
+            <!-- Seekbar and Controls -->
             <div class="seekbar">
-                <div class="previous play-button" id="previous-btn">
-                    <img src="svgFile/previous.svg" alt="Previous">
+                <!-- <button id="prev-btn">Previous</button> -->
+                <div class="seek-btn">
+                    <img src="svgFile/previous.svg" alt="">
+                    <img id="play-pause-btn" src="svgFile/play.svg" alt="">
+                    <img src="svgFile/next.svg" alt="">
                 </div>
-                <div id="play-pause-btn" class="play-button">
-                    <img src="svgFile/play.svg" alt="Play/Pause">
-                </div>
-                <div class="next play-button" id="next-btn">
-                    <img src="svgFile/next.svg" alt="Next">
-                </div>
-                <div class="progress-bar">
-                    <input type="range" id="seekbar" value="0" min="0" max="100" step="0.1">
-                </div>
-                <span id="current-time">00:00</span> / 
-                <span id="duration">00:00</span>
+                <!-- <button id="next-btn">Next</button> -->
+                <input type="range" id="seekbar" value="0" min="0" max="100">
+
             </div>
         </div>
-
     </main>
 
-    <!-- Audio Player -->
+    <!-- Hidden Audio Element -->
     <audio id="audio-player"></audio>
 
     <!-- JavaScript -->
     <script>
-        const audio = document.getElementById('audio-player');
-        const playPauseBtn = document.getElementById('play-pause-btn');
-        const seekbar = document.getElementById('seekbar');
-        const currentTimeEl = document.getElementById('current-time');
-        const durationEl = document.getElementById('duration');
-        const musicContainer = document.getElementById('music-container');
-        let isPlaying = false;
-        let currentTrackIndex = 0;
-
-        // Array of songs (each song has title, artist, image, and URL)
-        const playlist = [
-            {
-                title: "Chaleya",
-                artist: "Arijit Singh",
-                image: "Songs/Arjit singh/images/Chaleya.jfif",
-                url: "Songs/Arjit singh/Chaleya.mp3"
-            },
-            {
-                title: "Pyaar hota kayi bar...",
-                artist: "Arijit Singh",
-                image: "Songs/Arjit singh/images/Pyar hota kayi bar hai.jfif",
-                url: "Songs/Arjit singh/Pyaar hota kayi baar hai.mp3"
-            },
-            {
-                title: "Song 3",
-                artist: "Arijit Singh",
-                image: "images/song3.jpg",
-                url: "https://www.example.com/song3.mp3"
-            }
+        var audioPlayer = document.getElementById('audio-player');
+        var seekbar = document.getElementById('seekbar');
+        var playPauseBtn = document.getElementById('play-pause-btn');
+        var currentSongIndex = 0;
+        var isPlaying = false;
+        var songs = [
+            { title: "I'm In The Moon", src: "", content: "True Beauty"},
+            { title: "I'm Missing You", src: "", content: "True Beauty"},
+            { title: "Fall In You", src: "", content: "True Beauty"},
+            { title: "Friend", src: "", content: "Snow Drop"},
+            { title: "Memories More Than Love", src: "", content: "Snow Drop"},
+            { title: "If You Are With ME", src: "", content: "Snow Drop"},
+            { title: "Stay With Me", src: "", content: "Goblin"},
+            { title: "Because I'm Stupid", src: "", content: "Boys over flower"},
+            { title: "Sunset", src: "", content: "Crash landing on you"},
+            { title: "Flower", src: "", content: "Crash landing on you"},
+            { title: "Give You My Heart", src: "", content: "Crash landing on you"},
+            // { title: "", src: "", content: ""},
         ];
 
-        // Function to load the playlist and create music cards
-        function loadPlaylist() {
-            playlist.forEach((track, index) => {
-                const musicCard = document.createElement('div');
-                musicCard.classList.add('music-card');
-                musicCard.innerHTML = `
-                    <img src="${track.image}" alt="${track.title}">
-                    <span>${track.title}</span>
-                `;
-                // Click event for playing song on card click
-                musicCard.addEventListener('click', () => {
-                    currentTrackIndex = index;
-                    loadMusic(currentTrackIndex);
-                });
-                musicContainer.appendChild(musicCard);
-            });
+        // Function to render music cards
+        function MusicCard(img, title, content, index) {
+            let html = `
+                <div class="music-card" data-index="${index}">
+                    <img src="${img}" alt="">
+                    <div class="play-button">
+                            <img src="svgFile/songicon.svg" alt="">
+                            <div class="m-title">
+                                <span>${title}</span>
+                                <p>Song - ${content}</p>
+                            </div>
+                    </div>
+                </div>
+            `;
+            document.querySelector(".music-container").innerHTML += html;
         }
 
-        // Function to load and play the selected music
-        function loadMusic(index) {
-            audio.src = playlist[index].url;
-            audio.load();
-            audio.play();
-            playPauseBtn.querySelector('img').src = "svgFile/pause.svg";
+        // Render all cards
+        songs.forEach((song, index) => {
+            MusicCard(`Songs/English/images/${song.title}.jfif`, song.title, song.content, index);
+        });
+
+        // Play song when music card is clicked
+        document.querySelector('.music-container').addEventListener('click', function (event) {
+            var card = event.target.closest('.music-card');
+            if (card) {
+                var index = card.getAttribute('data-index');
+                loadSong(index);
+                playSong();
+            }
+        });
+
+        // Load and play song
+        function loadSong(index) {
+            currentSongIndex = index;
+            audioPlayer.src = songs[index].src;
+        }
+
+        function playSong() {
+            audioPlayer.play();
             isPlaying = true;
+            playPauseBtn.src = 'svgFile/pause.svg';
+        }
+
+        function pauseSong() {
+            audioPlayer.pause();
+            isPlaying = false;
+            playPauseBtn.src = 'svgFile/play.svg';
         }
 
         // Play/Pause functionality
-        playPauseBtn.addEventListener('click', () => {
+        playPauseBtn.addEventListener('click', function () {
             if (isPlaying) {
-                audio.pause();
-                playPauseBtn.querySelector('img').src = "svgFile/play.svg";
+                pauseSong();
             } else {
-                audio.play();
-                playPauseBtn.querySelector('img').src = "svgFile/pause.svg";
-            }
-            isPlaying = !isPlaying;
-        });
-
-        // Update seekbar and time while the audio is playing
-        audio.addEventListener('timeupdate', () => {
-            const currentTime = audio.currentTime;
-            const duration = audio.duration;
-            seekbar.value = (currentTime / duration) * 100;
-            currentTimeEl.textContent = formatTime(currentTime);
-            if (!isNaN(duration)) {
-                durationEl.textContent = formatTime(duration);
+                playSong();
             }
         });
 
-        // Seekbar input to jump through the song
-        seekbar.addEventListener('input', () => {
-            const seekTo = (seekbar.value / 100) * audio.duration;
-            audio.currentTime = seekTo;
+        // Update seekbar as song plays
+        audioPlayer.addEventListener('timeupdate', function () {
+            var percentage = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+            seekbar.value = percentage;
         });
 
-        // Format time in MM:SS format
-        function formatTime(seconds) {
-            const min = Math.floor(seconds / 60);
-            const sec = Math.floor(seconds % 60);
-            return `${min}:${sec < 10 ? '0' : ''}${sec}`;
-        }
+        // Seek song using seekbar
+        seekbar.addEventListener('input', function () {
+            var seekTo = (seekbar.value / 100) * audioPlayer.duration;
+            audioPlayer.currentTime = seekTo;
+        });
 
-        // Load the playlist on page load
-        window.onload = () => {
-            loadPlaylist();
-        };
+
+         // hamburger
+         const hamburger = document.getElementById("hamburger");
+        const leftContent = document.querySelector(".left");
+
+        hamburger.addEventListener("click", () => {
+            leftContent.classList.toggle("active");
+        });
     </script>
-
 </body>
 
 </html>
