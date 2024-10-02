@@ -431,7 +431,6 @@ a {
 
 }
 
-
 /* Responsive For Mobile */
 @media (max-width: 768px) {
 
@@ -489,9 +488,10 @@ a {
         /* border: 2px solid white; */
     }
     .category-buttons{
+        position: relative;
         display: flex;
         flex-direction: row;
-        gap: 10px;
+        gap: 8px;
         justify-content: flex-start;
         align-items: center;
         padding: 10px;

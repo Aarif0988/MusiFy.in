@@ -32,6 +32,7 @@
 
         #hamburger {
             display: block;
+            /* border: 2px solid white; */
         }
 
         body {
@@ -52,6 +53,103 @@
     /* Toggle class to show the left content */
     .left.active {
         display: block;
+    }
+
+    /* Front signup styling */
+    #signup-btn {
+        position: absolute;
+        right: 20px;
+        font-size: 14px;
+        background: rgb(255, 255, 255);
+        color: rgb(79, 79, 79);
+        width: 80px;
+        transition: all 0.2s ease;
+    }
+
+    #signup-btn:hover {
+        transform: scale(1.1)
+    }
+
+    #screen {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        background: rgb(0, 0, 0, 0.8);
+        color: white;
+    }
+
+    .signup-card {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 90%;
+        height: auto;
+        background: rgb(255, 255, 255);
+        border-radius: 5px;
+        color: black;
+        /* border: 2px solid red; */
+    }
+
+    .signup-card .account-logo {
+        position: relative;
+        background: rgb(34, 105, 218);
+        color: white;
+        height: 150px;
+        text-align: center;
+        padding: 10px 0;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-weight: bolder;
+        font-size: 22px;
+        border-radius: 5px 5px 35% 35%;
+        margin: 0 10px;
+        /* border: 2px solid blue; */
+    }
+
+    .account-logo span {
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        margin-bottom: 10px;
+    }
+    .account-logo img{
+        width: 40px;
+        outline: 2px solid rgb(255, 255, 255);
+        padding: 10px;
+        border-radius: 50%;
+    }
+
+    .user-inputs {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        /* border: 2px solid black; */
+    }
+
+    .user-inputs input {
+        padding: 7px;
+        margin: 7px 0;
+        width: 200px;
+        border-radius: 5px;
+        border: none;
+        outline: 1px solid grey
+    }
+
+    #submit-btn {
+        background: rgb(34, 105, 218);
+        color: white;
+        width: 100px;
+        border: none;
+        outline: 0px;
+        font-size: medium;
     }
 </style>
 
@@ -106,6 +204,26 @@
                     </div>
                     <a href="#"><button>All</button></a>
                     <a href="#"><button>Song</button></a>
+                    <!-- Sign Up -->
+                    <button id="signup-btn">Sign Up</button>
+                    <!-- hidden screen -->
+                    <div id="screen" class="signup-screen">
+                        <div class="signup-card">
+                            <div class="account-logo">
+                                <span>
+                                    <img src="svgFile/account.svg" alt="">
+                                    <div class="heading">Sign Up</div>
+                                </span>
+                            </div>
+                            <div class="user-inputs">
+                                <input id="user-name" type="text" placeholder="Name">
+                                <input id="user-email" type="email" placeholder="Email...">
+                                <input id="user-password" type="password" placeholder="Create password">
+                                <input id="user-password" type="password" placeholder="Confirm Password">
+                                <input id="submit-btn" type="submit" placeholder="Button">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="disp-head">
@@ -206,6 +324,7 @@
 
     <!-- Backend Javascript -->
     <script src="script.js"></script>
+    <script src="sign.js"></script>
 </body>
 
 </html>
