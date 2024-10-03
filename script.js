@@ -4,9 +4,18 @@ console.log("Bishmillah")
 const profile = document.querySelector('.profile')
 const profile_btn = document.querySelector('.profile-btn')
 const category = document.querySelector('.category-buttons')
+const home = document.querySelector('.home')
+const seek = document.querySelector('.seekbar')
 profile_btn.addEventListener('click', function(){
     profile.style.display = 'flex'
     category.style.display = 'none'
+    seek.style.position = 'absolute'
+
+})
+home.addEventListener('click', function(){
+    profile.style.display = 'none'
+    category.style.display = 'flex'
+    seek.style.position = 'relative'
 })
 
 // Mobile Javascript for front display 
