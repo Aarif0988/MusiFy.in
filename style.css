@@ -8,6 +8,13 @@ body {
     color: white;
 }
 
+.profile{
+    display: none;
+}
+.bottom-list{
+    display: none;
+}
+
 .navbar {
     display: flex;
     justify-content: space-around;
@@ -462,6 +469,7 @@ a {
         border-bottom: 2 solid white;
         border-radius: 0px 0px 25px 25px;
         width: 100%;
+        /* border: 2px solid white; */
     }
     .logo {
         font-size: 35px;
@@ -595,7 +603,7 @@ a {
         /* border: 2px solid white; */
     }
     .music-card {
-        width: 170px;
+        width: 150px;
         height: auto;
         /* padding: 5px; */
         padding-bottom: 0;
@@ -604,7 +612,7 @@ a {
     }
 
     .music-card img {
-        width: 170px;
+        width: 150px;
         /* border-radius: 10px; */
     }
 

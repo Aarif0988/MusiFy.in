@@ -24,6 +24,10 @@ submit.addEventListener('click', function (event) {
         element.style.background = 'none'
         element.style.color = 'white'
         element.textContent = `Hello, ${userName}`
+
+        // Saving user name in Profile section
+        const profile_name = document.querySelector('.profile-name')
+        profile_name.textContent = `${user_name}`
     }
     else{
         user_name = false;

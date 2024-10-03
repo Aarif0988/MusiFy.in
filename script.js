@@ -1,5 +1,14 @@
 console.log("Bishmillah")
 
+//  Function for Profile ;
+const profile = document.querySelector('.profile')
+const profile_btn = document.querySelector('.profile-btn')
+const category = document.querySelector('.category-buttons')
+profile_btn.addEventListener('click', function(){
+    profile.style.display = 'flex'
+    category.style.display = 'none'
+})
+
 // Mobile Javascript for front display 
 var audioPlayer = document.getElementById('audio-player');
 var seekbar = document.getElementById('seekbar');
@@ -99,22 +108,6 @@ seekbar.addEventListener('input', function () {
     var seekTo = (seekbar.value / 100) * audioPlayer.duration;
     audioPlayer.currentTime = seekTo;
 });
-
-
-
-
-// Login
-document.getElementById("email").addEventListener("click", function () {
-    setTimeout(() => {
-        let div = document.createElement("button")
-        div.setAttribute("class", "btn")
-        div.innerText = "Login"
-        document.querySelector(".account").insertAdjacentElement("beforeend", div)
-    }, 2000);
-})
-
-// Playlist
-// Working.......
 
 
 // Music container
