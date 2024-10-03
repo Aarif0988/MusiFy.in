@@ -15,11 +15,14 @@ btn.addEventListener('click', function () {
 submit.addEventListener('click', function (event) {
     event.preventDefault();
     const user_name = document.getElementById('user-name').value
+    const last_name = document.getElementById('user-name').nextElementSibling.value
+    const mobile = document.getElementById('user-email').value
     localStorage.setItem('user_name', user_name)
-
+    
     screen.style.display = 'none'
     if (user_name === user_name) {
         let userName = `${user_name}`
+        let lastName = `${last_name}`
         const element = document.getElementById('signup-btn')
         element.style.background = 'none'
         element.style.color = 'white'
@@ -27,7 +30,9 @@ submit.addEventListener('click', function (event) {
 
         // Saving user name in Profile section
         const profile_name = document.querySelector('.profile-name')
-        profile_name.textContent = `${user_name}`
+        const mobile_no = document.getElementById('mobile-number')
+        profile_name.textContent = `${user_name} ${lastName}`
+        mobile_no.textContent = `Mobile : ${mobile}`
     }
     else{
         user_name = false;

@@ -89,20 +89,34 @@
             /* border: 2px solid white; */
         }
 
+        /* Profile Section */
         .profile {
             position: fixed;
             top: 0;
             bottom: 0;
-            right: 0;
             left: 0;
+            right: 0;
             display: none;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
             width: 100%;
             height: 800px;
+            padding: 10px 0px;
             background: #042736;
             /* border: 2px solid white; */
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            animation: ProfileAnimation 0.3s ease forwards;
+        }
+
+        @keyframes ProfileAnimation {
+            0% {
+                left: 100%;
+            }
+
+            100% {
+                left: 0;
+            }
         }
 
         .profile-photo {
@@ -110,11 +124,10 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            font-size: 34px;
+            font-size: 25px;
             font-family: sans-serif;
             width: 95%;
             padding: 12px 0;
-            margin: 10px 0px;
             box-shadow: 0px 0px 10px 0px #031b24;
             border-radius: 10px;
             /* border: 2px solid white; */
@@ -125,8 +138,57 @@
             margin: 10px;
             padding: 15px;
             border-radius: 50%;
-            background: #021117;
+            background: rgba(0, 0, 0, 0.849);
+            filter: invert(1);
             /* outline: 2px solid white; */
+        }
+
+        .mobile-no {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            color: black;
+            filter: invert(1);
+            font-size: 15px;
+            font-weight: 700;
+            margin-top: 5px;
+        }
+
+        .mobile-no img {
+            border-radius: 0px;
+            background: none;
+            padding: 0px;
+            margin: 0;
+            width: 25px;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 500px;
+            width: 88%;
+            margin-top: 10px;
+            /* border: 2px solid white; */
+        }
+
+        .profile .profile-options {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 12px;
+            width: 80%;
+            margin: 5px 0;
+            border-radius: 10px;
+            background: black;
+            color: white;
+            filter: invert(1);
+            /* box-shadow: 0px 0px 10px 0px #031b24; */
+            /* border: 2px solid white; */
         }
     }
 
@@ -221,7 +283,8 @@
         width: 200px;
         border-radius: 5px;
         border: none;
-        outline: 1px solid grey
+        outline: 1px solid grey;
+        font-size: 18px;
     }
 
     #submit-btn {
@@ -235,11 +298,94 @@
 </style>
 
 <body>
+    <!-- Profile -->
     <div class="profile">
         <div class="profile-photo">
             <img src="svgFile/account.svg" alt="">
             <div class="profile-name">
                 None
+            </div>
+            <div class="mobile-no">
+                <img src="svgFile/phone.svg" alt="">
+                <span id="mobile-number">
+                </span>
+            </div>
+        </div>
+        <div class="profile-container">
+            <div class="fav profile-options">
+                <img src="svgFile/fav.svg" alt="">
+                <span>Favourite</span>
+            </div>
+            <div class="Download profile-options">
+                <img src="svgFile/download.svg" alt="">
+                <span>Downloads</span>
+            </div>
+
+            <!-- Owner Section -->
+            <div class="Owner-section">
+                <!-- <div class="Owner-insta Owner">
+                    <a href="https://www.instagram.com/_aarifali.9/">
+                        <img src="svgFile/Insta.svg" alt="">
+                        <span>Instagram</span>
+                    </a>
+                </div> -->
+                <div class="Owner-contact Owner">
+                    <img src="svgFile/owner.svg" alt="">
+                    <span>App Owner</span>
+                </div>
+            </div>
+            <style>
+                .Owner-section {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 8px;
+                    /* margin: 10px; */
+                    width: 90%;
+                    padding: 10px;
+                    height: auto;
+                    /* border: 2px solid white; */
+                }
+
+                .Owner {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                    background: rgba(63, 130, 206, 0.671);
+                    color: white;
+                    padding: 10px 15px;
+                    width: 100%;
+                    height: auto;
+                    border-radius: 50px;
+                }
+
+                .Owner img {
+                    width: 35px;
+                }
+
+                .Owner-section a {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 7px;
+                    justify-content: center;
+                    align-items: center;
+                    text-decoration: none;
+                    width: 200%; 
+                    margin: 0;
+                    padding: 0;
+                    color: white;
+                    font-style: none;
+                }
+            </style>
+
+            <div class="profile-setting profile-options">
+                <img src="svgFile/setting.svg" alt="">
+                <span>Settings</span>
+            </div>
+            <div class="profile-logout profile-options">
+                <img src="svgFile/logout.svg" alt="">
+                <span>Logout</span>
             </div>
         </div>
     </div>
@@ -257,8 +403,8 @@
             <div>Search</div>
         </div>
         <div class="bottom-category">
-            <img src="svgFile/next.svg" alt="">
-            <div>Category</div>
+            <img src="svgFile/category.svg" alt="">
+            <div>Categories</div>
         </div>
         <div class="profile-btn">
             <img src="svgFile/account.svg" alt="">
@@ -327,10 +473,11 @@
                                 </span>
                             </div>
                             <div class="user-inputs">
-                                <input id="user-name" type="text" placeholder="Name">
-                                <input id="user-email" type="email" placeholder="Email...">
-                                <input id="user-password" type="password" placeholder="Create password">
-                                <input id="user-password" type="password" placeholder="Confirm Password">
+                                <input id="user-name" type="text" placeholder="First Name">
+                                <input id="user-name" type="text" placeholder="Last Name">
+                                <input id="user-email" type="number" placeholder="Mobile">
+                                <!-- <input id="user-password" type="password" placeholder="Create password">
+                                <input id="user-password" type="password" placeholder="Confirm Password"> -->
                                 <input id="submit-btn" type="submit" placeholder="Button">
                             </div>
                         </div>
