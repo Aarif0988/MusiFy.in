@@ -64,6 +64,8 @@ function SeekBar() {
     songcard.addEventListener('click', function () {
         const el = document.getElementById("seekbbb")
         el.removeAttribute("style")
+        const mobile_front = document.querySelector('.mobile-front')
+        mobile_front.style.height = 'auto'
     })
 
 }
