@@ -491,7 +491,7 @@ a {
         color: white;
         font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         font-weight: 800;
-        height: auto;
+        height: 300px;
         color: rgb(195, 195, 195);
         /* border: 2px solid white; */
     }
