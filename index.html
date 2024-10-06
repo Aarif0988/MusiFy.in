@@ -371,7 +371,7 @@
                     justify-content: center;
                     align-items: center;
                     text-decoration: none;
-                    width: 200%; 
+                    width: 200%;
                     margin: 0;
                     padding: 0;
                     color: white;
@@ -389,8 +389,6 @@
             </div>
         </div>
     </div>
-
-
 
     <!-- Bottom List for Mobile -->
     <div class="bottom-list">
@@ -476,8 +474,6 @@
                                 <input id="user-name" type="text" placeholder="First Name">
                                 <input id="user-name" type="text" placeholder="Last Name">
                                 <input id="user-email" type="number" placeholder="Mobile">
-                                <!-- <input id="user-password" type="password" placeholder="Create password">
-                                <input id="user-password" type="password" placeholder="Confirm Password"> -->
                                 <input id="submit-btn" type="submit" placeholder="Button">
                             </div>
                         </div>
@@ -495,13 +491,16 @@
             <!-- Seekbar and Controls -->
             <div class="seekbar">
                 <div id="seekbbb" style="display: none;" class="seek-content">
-                    <!-- <button id="prev-btn">Previous</button> -->
-                    <div class="seek-btn">
-                        <img src="svgFile/previous.svg" alt="">
-                        <img id="play-pause-btn" src="svgFile/play.svg" alt="">
-                        <img src="svgFile/next.svg" alt="">
+                    <div class="player">
+                        <img class="player-img" src="" alt="">
+                        <div class="play-buttons">
+                            <img src="svgFile/previous.svg" alt="">
+                            <img id="play-pause-btn" src="svgFile/play.svg" alt="">
+                            <img src="svgFile/next.svg" alt="">
+                        </div>
+                        <img id="heart" src="svgFile/fav.svg" alt="">
                     </div>
-                    <!-- <button id="next-btn">Next</button> -->
+
                     <input type="range" id="seekbar" value="0" min="0" max="100">
                 </div>
             </div>

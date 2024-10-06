@@ -5,22 +5,24 @@ const profile = document.querySelector('.profile')
 const profile_btn = document.querySelector('.profile-btn')
 const category = document.querySelector('.category-buttons')
 const home = document.querySelector('.home')
-const seek = document.querySelector('.seekbar')
-profile_btn.addEventListener('click', function(){
+var seekbar = document.querySelector('.seekbar');
+var SeekRange = document.getElementById('seekbar')
+const seek = document.querySelector('.seek-content')
+profile_btn.addEventListener('click', function () {
     profile.style.display = 'flex'
     category.style.display = 'none'
-    seek.style.position = 'absolute'
+    seekbar.style.display = 'none'
 
 })
-home.addEventListener('click', function(){
-    profile.style.display = 'none'
+home.addEventListener('click', function () {
+    profile.style. display = 'none'
     category.style.display = 'flex'
-    seek.style.position = 'relative'
+    seekbar.style.display = 'flex'
+    // seek.style.
 })
 
 // Mobile Javascript for front display 
 var audioPlayer = document.getElementById('audio-player');
-var seekbar = document.getElementById('seekbar');
 var playPauseBtn = document.getElementById('play-pause-btn');
 var currentSongIndex = 0;
 var isPlaying = false;
@@ -30,12 +32,12 @@ var dslist = [
     { title: "Lo Maan Liya", img: "Songs/Arijit singh/images/Lo Maan Liya.jfif", src: "Songs/Arijit singh/Lo Maan Liya.mp3", content: "Arijit singh" },
     { title: "Sanam Teri kasam", img: "Songs/Arijit singh/images/Sanam Teri Kasam.jfif", src: "Songs/Arijit singh/Sanam Teri Kasam.mp3", content: "Sanam teri kasam" },
     { title: "Kabooter", img: "Songs/Haryanvi/images/Kabooter.jfif", src: "Songs/Haryanvi/Kabooter.mp3", content: "Haryanvi" },
-    { title: "Badli Badli Laage", img: "Songs/Haryanvi/images/Badli Badli Laage.jfif", src: "Songs/Haryanvi/Badli Badli Laage.mp3", content: "Haryanvi"},
-    { title: "Palang Sagwan Ke", img: "Songs/Bhojpuri/images/Palang sagwan.jfif", src: "Songs/Bhojpuri/Palang sagwan.mp3", content: "Khesari Lal"},
-    { title: "Banaras Ghumai Da", img: "Songs/Bhojpuri/images/Banaras Ghumai da.jfif", src: "Songs/Bhojpuri/A raja hamka banaras ghumai da.mp3", content: "Bhojpuri"},
-    { title: "Bewafa", img: "Songs/Bhojpuri/images/Bewafa.jfif", src: "Songs/Bhojpuri/Bewafa Bhojpuri.mp3", content: "In Bhojpuri"},
-    { title: "Aa Toh Sahi", img: "Songs/Bollywood/images/Aa Toh Sahi.jfif", src: "Songs/Bollywood/Aa Toh Sahi.mp3", content: "Judwaa 2"},
-    { title: "Apka Kiya Hoga", img: "Songs/Bollywood/images/Apka kya Hoga.jfif", src: "Songs/Bollywood/Apka Kya Hoga.mp3", content: "Slowed & Reverb"},
+    { title: "Badli Badli Laage", img: "Songs/Haryanvi/images/Badli Badli Laage.jfif", src: "Songs/Haryanvi/Badli Badli Laage.mp3", content: "Haryanvi" },
+    { title: "Palang Sagwan Ke", img: "Songs/Bhojpuri/images/Palang sagwan.jfif", src: "Songs/Bhojpuri/Palang sagwan.mp3", content: "Khesari Lal" },
+    { title: "Banaras Ghumai Da", img: "Songs/Bhojpuri/images/Banaras Ghumai da.jfif", src: "Songs/Bhojpuri/A raja hamka banaras ghumai da.mp3", content: "Bhojpuri" },
+    { title: "Bewafa", img: "Songs/Bhojpuri/images/Bewafa.jfif", src: "Songs/Bhojpuri/Bewafa Bhojpuri.mp3", content: "In Bhojpuri" },
+    { title: "Aa Toh Sahi", img: "Songs/Bollywood/images/Aa Toh Sahi.jfif", src: "Songs/Bollywood/Aa Toh Sahi.mp3", content: "Judwaa 2" },
+    { title: "Apka Kiya Hoga", img: "Songs/Bollywood/images/Apka kya Hoga.jfif", src: "Songs/Bollywood/Apka Kya Hoga.mp3", content: "Slowed & Reverb" },
     // { title: "", img: "", src: "", content: ""},
     // { title: "", img: "", src: "", content: ""},
 ]
@@ -59,13 +61,12 @@ dslist.forEach((song, index) => {
 });
 
 // Function for Display Seekbar : 
-function SeekBar() {
+function SeekBar(song) {
     const songcard = document.querySelector(".display-songs")
     songcard.addEventListener('click', function () {
         const el = document.getElementById("seekbbb")
         el.removeAttribute("style")
         const mobile_front = document.querySelector('.mobile-front')
-        mobile_front.style.height = 'auto'
     })
 
 }
@@ -78,8 +79,17 @@ document.querySelector('.display-songs').addEventListener('click', function (eve
         var index = card.getAttribute('data-index');
         loadSong(index);
         playSong();
+
+        // Assuming dslist is an array of objects where each object contains an 'img' property
+        const songData = dslist[index];  // Get the song data using the index
+        if (songData && songData.img) {
+            const player_img = document.querySelector('.player-img');
+            player_img.src = songData.img;  // Set the player image to the current song's image
+            console.log(songData.img);
+        }
     }
 });
+
 
 // Load and play song
 function loadSong(index) {
@@ -111,12 +121,12 @@ playPauseBtn.addEventListener('click', function () {
 // Update seekbar as song plays
 audioPlayer.addEventListener('timeupdate', function () {
     var percentage = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-    seekbar.value = percentage;
+    SeekRange.value = percentage;
 });
 
 // Seek song using seekbar
-seekbar.addEventListener('input', function () {
-    var seekTo = (seekbar.value / 100) * audioPlayer.duration;
+SeekRange.addEventListener('input', function () {
+    var seekTo = (SeekRange.value / 100) * audioPlayer.duration;
     audioPlayer.currentTime = seekTo;
 });
 

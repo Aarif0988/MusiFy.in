@@ -29,17 +29,17 @@
 }
 
 /* Seekbar buttons */
-.seek-btn {
+.player {
     display: flex;
     gap: 20px;
 }
 
-.seek-btn img {
+.player img {
     width: 40px;
     transition: all 0.2s ease-in-out;
 }
 
-.seek-btn img:hover {
+.player img:hover {
     transform: scale(1.09);
 }
 
@@ -139,7 +139,6 @@
     /* Seekbar For Mobile */
     .seekbar {
         width: 100%;
-        bottom: 0px;
         border-radius: 0;
         margin: 0;
         margin-top: 14px;
@@ -148,16 +147,54 @@
     }
 
     .seek-content {
+        position: fixed;
+        bottom: 60px;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 12px;
         border-radius: none;
         width: 100%;
-        height: 60px;
-        padding: 10px 0;
+        height: auto;
+        background: rgb(20, 20, 20);
+        animation: slideUp 0.2s ease-out forwards;
+    }
+
+    @keyframes slideUp {
+        from {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1; 
+        }
+    }
+
+    .player {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
         /* border: 2px solid white; */
+
+    }
+
+    .play-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .play-buttons img {
+        width: 35px;
+        opacity: 0.8;
+        /* border: 2px solid white; */
+    }
+
+    #heart {
+        width: 30px;
     }
 
 }

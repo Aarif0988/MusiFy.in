@@ -11,6 +11,8 @@ const user_password = document.getElementById('user-password')
 
 btn.addEventListener('click', function () {
     screen.style.display = 'flex'
+    const seekbar = document.querySelector('.seek-content')
+    seekbar.style.display = 'none'
 })
 submit.addEventListener('click', function (event) {
     event.preventDefault();
