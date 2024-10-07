@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="utility.css">
     <link rel="stylesheet" href="seekbar.css">
+    <link rel="stylesheet" href="FavePage.css">
 </head>
 
 <style>
@@ -390,6 +391,20 @@
         </div>
     </div>
 
+    <!-- Fav Songs Page -->
+    <FavSection>
+        <div class="Fav-page">
+            <div class="upper-content">
+                <div class="black-cover"></div>
+            </div>
+            <div class="lower-content">
+                <div class="Fav-heading">
+                    <span>Your Favourite Songs !</span>
+                </div>
+            </div>
+        </div>
+    </FavSection>
+
     <!-- Bottom List for Mobile -->
     <div class="bottom-list">
         <div class="home">
@@ -496,7 +511,7 @@
                         <div class="play-buttons">
                             <img src="svgFile/previous.svg" alt="">
                             <img id="play-pause-btn" src="svgFile/play.svg" alt="">
-                            <img src="svgFile/next.svg" alt="">
+                            <img id="Next" src="svgFile/next.svg" alt="">
                         </div>
                         <img id="heart" src="svgFile/fav.svg" alt="">
                     </div>
@@ -582,6 +597,7 @@
     <!-- Backend Javascript -->
     <script src="script.js"></script>
     <script src="sign.js"></script>
+    <script src="FavePage.js"></script>
 </body>
 
 </html>

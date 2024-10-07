@@ -15,7 +15,7 @@ profile_btn.addEventListener('click', function () {
 
 })
 home.addEventListener('click', function () {
-    profile.style. display = 'none'
+    profile.style.display = 'none'
     category.style.display = 'flex'
     seekbar.style.display = 'flex'
     // seek.style.
@@ -95,6 +95,7 @@ document.querySelector('.display-songs').addEventListener('click', function (eve
 function loadSong(index) {
     currentSongIndex = index;
     audioPlayer.src = dslist[index].src;
+    playSong();
 }
 
 function playSong() {
@@ -109,6 +110,13 @@ function pauseSong() {
     playPauseBtn.src = 'svgFile/play.svg';
 }
 
+function nextSong() {
+    // Increment the current song index, and loop back if it exceeds the playlist length
+    currentSongIndex = (currentSongIndex + 1) % dslist.length;
+    loadSong(currentSongIndex);
+
+}
+
 // Play/Pause functionality
 playPauseBtn.addEventListener('click', function () {
     if (isPlaying) {
@@ -117,6 +125,14 @@ playPauseBtn.addEventListener('click', function () {
         playSong();
     }
 });
+
+// Next button functionality
+const NextBtn = document.getElementById('Next'); // Ensure there is an element with id 'Next' in your HTML
+if (NextBtn) {
+    NextBtn.addEventListener('click', function () {
+        nextSong();
+    });
+}
 
 // Update seekbar as song plays
 audioPlayer.addEventListener('timeupdate', function () {
